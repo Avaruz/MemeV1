@@ -27,9 +27,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         // Do any additional setup after loading the view, typically from a nib.
         self.topText.delegate =  meme1Delegate
         self.bottomText.delegate = meme2Delegate
-        self.topText.text = "TOP"
-        self.bottomText.text = "BOTTOM"
-        self.saveImageButton.enabled=false
+        resetAll()
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +42,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         
         let memeTextAttributes = [ NSStrokeColorAttributeName: UIColor.blackColor(),
             NSForegroundColorAttributeName:UIColor.whiteColor(),
-            NSFontAttributeName:UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSFontAttributeName:UIFont(name: "Impact", size: 40)!,
             NSStrokeWidthAttributeName:-3.0]
         
         topText.defaultTextAttributes=memeTextAttributes
@@ -74,11 +72,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         
     }
     
+    func resetAll(){
+        saveImageButton.enabled = false
+        topText.text = "TOP"
+        bottomText.text = "BOTTOM"
+        imageView.image = nil
+        
+    }
+    
     @IBAction func saveImage(sender: UIBarButtonItem) {
         saveImageButton.enabled = false
         memeImage = generateMemedImage()
         let controller = UIActivityViewController(activityItems: [memeImage], applicationActivities: nil)
-        self.presentViewController(controller, animated: true, completion: nil)
+
         
         controller.completionWithItemsHandler = {
             (activity: String?, completed: Bool, items: [AnyObject]?, error: NSError?) -> Void in
@@ -88,6 +94,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
             }
         }
         
+        self.presentViewController(controller, animated: true, completion: nil)
+ 
+        if let pop = controller.popoverPresentationController {
+            let v = sender // sender would be the button view tapped, but could be any view
+            pop.sourceView = v.customView
+            pop.sourceRect = v.customView!.bounds
+        }
     }
     
     @IBAction func pickingImageFrom(sender: UIBarButtonItem) {
@@ -109,10 +122,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     }
     
     @IBAction func clearAll(sender: UIBarButtonItem) {
-        topText.text="TOP"
-        bottomText.text="BOTTOM"
-        imageView.image=nil
-        
+        resetAll()
     }
     
     func keyboardWillShow(notification: NSNotification) {

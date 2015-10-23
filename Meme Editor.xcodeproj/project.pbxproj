@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		FA3A01C21BD8080100698304 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A01C11BD8080100698304 /* AppDelegate.swift */; };
 		FA3A01C91BD8080100698304 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA3A01C81BD8080100698304 /* Assets.xcassets */; };
-		FA3A01D61BD8088600698304 /* MemeTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A01D51BD8088600698304 /* MemeTextFieldDelegate.swift */; settings = {ASSET_TAGS = (); }; };
-		FA3A01D81BD8089900698304 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A01D71BD8089900698304 /* ViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		FA3A01DB1BD808B700698304 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3A01D91BD808B700698304 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
-		FA3A01DC1BD808B700698304 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3A01DA1BD808B700698304 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
-		FA3A01DE1BD81AC700698304 /* directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A01DD1BD81AC700698304 /* directions.swift */; settings = {ASSET_TAGS = (); }; };
-		FA3A01E01BD81F7800698304 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A01DF1BD81F7800698304 /* Meme.swift */; settings = {ASSET_TAGS = (); }; };
+		FA3A01D61BD8088600698304 /* MemeTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A01D51BD8088600698304 /* MemeTextFieldDelegate.swift */; };
+		FA3A01D81BD8089900698304 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A01D71BD8089900698304 /* ViewController.swift */; };
+		FA3A01DB1BD808B700698304 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3A01D91BD808B700698304 /* LaunchScreen.storyboard */; };
+		FA3A01DC1BD808B700698304 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3A01DA1BD808B700698304 /* Main.storyboard */; };
+		FA3A01DE1BD81AC700698304 /* directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A01DD1BD81AC700698304 /* directions.swift */; };
+		FA3A01E01BD81F7800698304 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A01DF1BD81F7800698304 /* Meme.swift */; };
+		FA3A01E31BD8305800698304 /* impactreg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA3A01E21BD8305800698304 /* impactreg.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		FA3A01DA1BD808B700698304 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FA3A01DD1BD81AC700698304 /* directions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = directions.swift; sourceTree = "<group>"; };
 		FA3A01DF1BD81F7800698304 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
+		FA3A01E21BD8305800698304 /* impactreg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = impactreg.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		FA3A01C01BD8080100698304 /* Meme Editor */ = {
 			isa = PBXGroup;
 			children = (
+				FA3A01E11BD82E9D00698304 /* fonts */,
 				FA3A01D91BD808B700698304 /* LaunchScreen.storyboard */,
 				FA3A01DA1BD808B700698304 /* Main.storyboard */,
 				FA3A01D71BD8089900698304 /* ViewController.swift */,
@@ -71,6 +74,14 @@
 				FA3A01DF1BD81F7800698304 /* Meme.swift */,
 			);
 			path = "Meme Editor";
+			sourceTree = "<group>";
+		};
+		FA3A01E11BD82E9D00698304 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FA3A01E21BD8305800698304 /* impactreg.ttf */,
+			);
+			name = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,6 +115,7 @@
 				TargetAttributes = {
 					FA3A01BD1BD8080100698304 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 8PVGQ3ZU9K;
 					};
 				};
 			};
@@ -131,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA3A01DC1BD808B700698304 /* Main.storyboard in Resources */,
+				FA3A01E31BD8305800698304 /* impactreg.ttf in Resources */,
 				FA3A01C91BD8080100698304 /* Assets.xcassets in Resources */,
 				FA3A01DB1BD808B700698304 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -239,11 +252,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Meme Editor/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "roemmers.com.bo.Meme-Editor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -251,11 +265,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Meme Editor/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "roemmers.com.bo.Meme-Editor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -278,6 +293,7 @@
 				FA3A01D21BD8080100698304 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
