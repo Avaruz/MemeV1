@@ -26,8 +26,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.topText.delegate =  meme1Delegate
-        self.bottomText.delegate = meme2Delegate
+        topText.delegate =  meme1Delegate
+        bottomText.delegate = meme2Delegate
         resetAll()
     }
 
@@ -39,7 +39,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.subscribeToKeyboardNotifications()
+        subscribeToKeyboardNotifications()
         
         let memeTextAttributes = [ NSStrokeColorAttributeName: UIColor.blackColor(),
             NSForegroundColorAttributeName:UIColor.whiteColor(),
@@ -57,7 +57,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
 
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardNotifications()
     }
     
     func subscribeToKeyboardNotifications() {
@@ -95,7 +95,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
             }
         }
         
-        self.presentViewController(controller, animated: true, completion: nil)
+        presentViewController(controller, animated: true, completion: nil)
  
         if let pop = controller.popoverPresentationController {
             let v = sender // sender would be the button view tapped, but could be any view
@@ -118,7 +118,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
             
         }
     
-        self.presentViewController(pickerController, animated: true, completion: nil)
+        presentViewController(pickerController, animated: true, completion: nil)
         
     }
     
@@ -142,10 +142,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     func moveView(direction: directions, notification: NSNotification)
     {
         let keyboardHeight = getKeyboardHeight(notification)
-        let y = self.view.frame.origin.y
+        let y = view.frame.origin.y
         let newY = y + (keyboardHeight * CGFloat(direction.rawValue))
         //sometimes the keyboard don't show and the top is increase without need
-        self.view.frame.origin.y = (newY<=0 ? newY : y)
+        view.frame.origin.y = (newY<=0 ? newY : y)
         
     }
     
@@ -159,22 +159,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         if let image=info["UIImagePickerControllerOriginalImage"] as? UIImage {
-            self.imageView.image=image
-            
-            //self.imageView.contentMode = UIViewContentMode.ScaleToFill
+            imageView.image=image
             saveImageButton.enabled = true
         }
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
         
     }
     
     func save() {
         
        let meme = Meme(topTextField: topText.text, bottomTextField: bottomText.text, originalImage: imageView.image, memedImage: memeImage)
-    
         memes.append(meme)
-        
         
     }
     
@@ -184,15 +180,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         navBar.hidden = true
         
         //this trick make that imageView fill all the parent view
-        self.imageView.contentMode = UIViewContentMode.ScaleAspectFill
+        imageView.contentMode = UIViewContentMode.ScaleAspectFill
  
         UIGraphicsBeginImageContext(view.frame.size)
-        self.view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
+        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         //back to the normal view
-        self.imageView.contentMode = UIViewContentMode.ScaleToFill
+        imageView.contentMode = UIViewContentMode.ScaleToFill
         
         toolBar.hidden = false
         navBar.hidden = false
@@ -203,4 +199,3 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     
 
 }
-
