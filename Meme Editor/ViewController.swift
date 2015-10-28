@@ -18,6 +18,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var navBar: UINavigationBar!
     var memeImage : UIImage!
+    var memes : [Meme] = []
     
     let meme1Delegate = MemeTextFieldDelegate()
     let meme2Delegate = MemeTextFieldDelegate()
@@ -142,7 +143,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     {
         let keyboardHeight = getKeyboardHeight(notification)
         let y = self.view.frame.origin.y
-        self.view.frame.origin.y = y + (keyboardHeight * CGFloat(direction.rawValue))
+        let newY = y + (keyboardHeight * CGFloat(direction.rawValue))
+        //sometimes the keyboard don't show and the top is increase without need
+        self.view.frame.origin.y = (newY<=0 ? newY : y)
+        
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
@@ -156,6 +160,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         
         if let image=info["UIImagePickerControllerOriginalImage"] as? UIImage {
             self.imageView.image=image
+            
+            //self.imageView.contentMode = UIViewContentMode.ScaleToFill
             saveImageButton.enabled = true
         }
         
@@ -166,7 +172,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     func save() {
         
        let meme = Meme(topTextField: topText.text, bottomTextField: bottomText.text, originalImage: imageView.image, memedImage: memeImage)
-        //self.toolBar.hidden = true
+    
+        memes.append(meme)
         
         
     }
@@ -175,11 +182,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         
         toolBar.hidden = true
         navBar.hidden = true
+        
+        //this trick make that imageView fill all the parent view
+        self.imageView.contentMode = UIViewContentMode.ScaleAspectFill
  
         UIGraphicsBeginImageContext(view.frame.size)
         self.view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        
+        //back to the normal view
+        self.imageView.contentMode = UIViewContentMode.ScaleToFill
         
         toolBar.hidden = false
         navBar.hidden = false

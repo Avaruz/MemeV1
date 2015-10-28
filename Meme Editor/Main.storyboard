@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -59,7 +59,7 @@
                                 <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <textField clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6T-gc-4dt">
-                                <rect key="frame" x="117.5" y="567" width="139" height="48"/>
+                                <rect key="frame" x="118" y="567" width="139" height="48"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="40"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -82,13 +82,12 @@
                             <constraint firstAttribute="trailingMargin" secondItem="YSE-O0-vGF" secondAttribute="trailing" constant="-20" id="IrG-il-Aw2"/>
                             <constraint firstItem="YSE-O0-vGF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="LU7-ZJ-UzI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0eG-OV-0wi" secondAttribute="trailing" constant="-20" id="Lxf-UO-dnc"/>
-                            <constraint firstItem="0eG-OV-0wi" firstAttribute="top" secondItem="aGn-ZB-9os" secondAttribute="bottom" constant="-69" id="NIw-rW-Rt4"/>
+                            <constraint firstItem="aGn-ZB-9os" firstAttribute="bottom" secondItem="0eG-OV-0wi" secondAttribute="top" constant="69" id="SuS-AC-WTP"/>
+                            <constraint firstItem="0eG-OV-0wi" firstAttribute="leading" secondItem="YSE-O0-vGF" secondAttribute="leading" id="YGm-Pq-XhS"/>
                             <constraint firstItem="sEM-My-fHC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="12" id="aCw-ZQ-xcc"/>
-                            <constraint firstItem="0eG-OV-0wi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="fHD-qo-Vwt"/>
                             <constraint firstItem="b6T-gc-4dt" firstAttribute="top" secondItem="0eG-OV-0wi" secondAttribute="bottom" constant="-65" id="fWq-Sl-2IJ"/>
                             <constraint firstItem="sEM-My-fHC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="fch-V5-yHE"/>
                             <constraint firstItem="b6T-gc-4dt" firstAttribute="centerX" secondItem="0eG-OV-0wi" secondAttribute="centerX" id="jWz-AD-z89"/>
-                            <constraint firstItem="YSE-O0-vGF" firstAttribute="leading" secondItem="0eG-OV-0wi" secondAttribute="leading" id="uam-Eb-o5k"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
